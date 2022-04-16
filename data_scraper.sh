@@ -7,7 +7,7 @@
 #                                                                         #
 #  Author:      D4lL45                                                    #
 #                                                                         #
-#  Version:     1.0.2                                                     #
+#  Version:     1.0.3                                                     #
 #  Date:        13.04.2022                                                #
 #                                                                         #
 #  Description: This script allows you to extract data from sql table     #
@@ -27,10 +27,10 @@
 #               data_scraper.sh -l [wordlist] -f [file] -R -d [dir]       #
 #                                                                         #
 #  Parameter:   -l [wordlist]   path to a wordlist                        #
-#               -c [path]       directory to copy the files               #
+#               -c [path]       directory to copy the files with a hit    #
 #               -f [file]       copy data to a single file                #
 #               -R              recursive, looking for subfolders         #
-#               -d [dir]        directory to scrape data                  #
+#               -d [dir]        directory to scrape data from             #
 #               -s [file]       file to scrape data from                  #
 #                                                                         #
 ###########################################################################
@@ -104,13 +104,6 @@ dir=""
 source=""
 
 echo ""
-
-# check if there are enough arguments (at least 4 required and max 7):
-if [[ "$#" -lt 4 || "$#" -gt 7 ]]; then
-	echo ""
-	echo "Check your arguments! More than 3 and less than 8 required!"
-	exit 1
-fi
 
 # extract arguments from command line:
 while getopts ":l:c:f:Rd:s:" option; do
